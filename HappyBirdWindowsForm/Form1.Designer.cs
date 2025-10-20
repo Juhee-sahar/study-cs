@@ -106,7 +106,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Cyan;
-            this.ClientSize = new System.Drawing.Size(623, 698);
+            this.ClientSize = new System.Drawing.Size(624, 701);
             this.Controls.Add(this.flappyBird);
             this.Controls.Add(this.scoreText);
             this.Controls.Add(this.pipeTop);

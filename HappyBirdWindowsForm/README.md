@@ -1,4 +1,7 @@
+![화면이미지](Resources/screen02.png)
+시작화면
 ![화면이미지](Resources/screen01.png)
+게임화면
 
 # 출처
 **youtube - Moo ICT**  <br>
