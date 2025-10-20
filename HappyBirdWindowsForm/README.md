@@ -1,7 +1,7 @@
 ![화면이미지](Resources/screen02.png)
 <br>
 시작화면
-<br>
+<br><br>
 ![화면이미지](Resources/screen01.png)
 <br>
 게임화면
