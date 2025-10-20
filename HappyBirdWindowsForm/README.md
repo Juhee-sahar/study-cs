@@ -22,3 +22,13 @@ Timer는 일정한 시간 간격마다 이벤트를 발생시키는 타이머 �
 - 타입: int
 - 기본값: 100 ms <br>
 timer1.Interval = 1000; // 1초마다 Tick 이벤트 발생
+
+# 창 열기
+```csharp
+private void LoadGame(object sender, EventArgs e)
+{
+    Form1 gameWindow = new Form1();
+
+    gameWindow.Show();
+}
+```
