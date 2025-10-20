@@ -13,5 +13,5 @@ Timer는 일정한 시간 간격마다 이벤트를 발생시키는 타이머 �
 **Timer.Interval**
 - 단위: 밀리초(ms)
 - 타입: int
-- 기본값: 100 ms
+- 기본값: 100 ms \n
 timer1.Interval = 1000; // 1초마다 Tick 이벤트 발생
