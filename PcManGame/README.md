@@ -12,15 +12,16 @@ https://www.youtube.com/watch?v=fdw-HGIMZFY&list=PLqOxH0kcZ8wPB5ydzHw81hGDdO85b-
 
 # Control 
 this.Controls → 폼(Form1)에 추가된 모든 컨트롤 모음
-
-foreach(Control x in this.Controls) <br>
-{<br>
+```csharp
+foreach(Control x in this.Controls)
+{
     if(x is PictureBox)<br>
-    {<br>
+    {
         if((string)x.Tag == "coin" && x.Visible == true)<br>
-        { }<br>
-    }<br>
-}<br>
+        { }
+    }
+}
+```
 foreach → 폼 안에 있는 모든 컨트롤을 순회 <br>
 if(x is PictureBox) → 현재 컨트롤이 PictureBox 타입이면 처리<br>
 
