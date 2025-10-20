@@ -15,9 +15,9 @@ this.Controls → 폼(Form1)에 추가된 모든 컨트롤 모음
 ```csharp
 foreach(Control x in this.Controls)
 {
-    if(x is PictureBox)<br>
+    if(x is PictureBox)
     {
-        if((string)x.Tag == "coin" && x.Visible == true)<br>
+        if((string)x.Tag == "coin" && x.Visible == true)
         { }
     }
 }
