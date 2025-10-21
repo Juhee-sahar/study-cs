@@ -1,13 +1,11 @@
 # C# 클래스 라이브러리 생성
-솔루션탐색기(Solution Explorer) >> 솔루션오른쪽클릭 >> 추가(Add) >> 새 프로젝트(New Project)
-<br>
+- 솔루션탐색기(Solution Explorer) >> 솔루션오른쪽클릭 >> 추가(Add) >> 새 프로젝트(New Project)
+
 ![화면이미지](imgs/screen02.png)
-<br>
-<br>
-클래스 라이브러리
-<br>
+
+- 클래스 라이브러리
+
 ![화면이미지](imgs/screen03.png)
-<br>
 
 # 솔루션 내부 프로젝트 참조하기
 솔루션탐색기(Solution Explorer) >> 종속성(Dependencies) >> 프로젝트 참조 추가(Add Project Reference)
