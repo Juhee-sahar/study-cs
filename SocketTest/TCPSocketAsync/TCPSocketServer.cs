@@ -11,11 +11,11 @@ namespace TCPSocketAsync
         int mPort;
         TcpListener? mTCPListener;
 
-        List<TcpClient> mClients;   
+        List<TcpClient> mClients;
 
         public TCPSocketServer()
         {
-            mClients = new List<TcpClient>();   
+            mClients = new List<TcpClient>();
         }
 
         public bool KeepRunning { get; set; } = false;
@@ -149,6 +149,31 @@ namespace TCPSocketAsync
             {
                 Debug.WriteLine(e.ToString());
             }
+        }
+
+        public void StopServer()
+        {
+            try
+            {
+                if (mTCPListener != null)
+                {
+                    mTCPListener.Stop();
+                }
+
+                foreach (TcpClient clnt in mClients)
+                {
+                    clnt.Close();
+                }
+                mClients.Clear();   
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+
         }
     }
 }

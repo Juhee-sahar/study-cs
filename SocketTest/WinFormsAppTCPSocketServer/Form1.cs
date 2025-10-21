@@ -26,5 +26,10 @@ namespace WinFormsAppTCPSocketServer
             // _ 는 Discard(버림값) 리턴값이 필요 없는 모든 상황에서 값을 사용하지 않을 의도 명시
             _ = mServer.SendToAll(textBox1.Text.Trim());
         }
+
+        private void BtnStopServer_Click(object sender, System.EventArgs e)
+        {
+            mServer.StopServer();
+        }
     }
 }
