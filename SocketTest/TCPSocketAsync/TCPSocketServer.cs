@@ -9,6 +9,8 @@ namespace TCPSocketAsync
         int mPort;
         TcpListener? mTCPListener;
 
+        public bool KeepRunning { get; set; } = false;
+
         public async Task StartServerListeningAsync(IPAddress? ipaddr = null, int port = 23000)
         {
             if (ipaddr == null)
@@ -23,13 +25,43 @@ namespace TCPSocketAsync
             //(1)
             mTCPListener = new TcpListener(mIP, mPort);
 
-            //(2)
-            mTCPListener.Start();
-            Console.WriteLine($"Server started on {mIP.ToString()}:{mPort}");
+            try
+            {
+                //(2)
+                mTCPListener.Start();
+                Console.WriteLine($"Server started on {mIP.ToString()}:{mPort}");
 
-            //(3)
-            TcpClient client = await mTCPListener.AcceptTcpClientAsync();
-            Console.WriteLine("Client connected.");
+                KeepRunning = true;
+
+                while (KeepRunning)
+                {
+                    //(3)
+                    TcpClient client = await mTCPListener.AcceptTcpClientAsync();
+                    Console.WriteLine("Client connected. : {client.Client.RemoteEndPoint}"); 
+                }
+            }
+            catch (SocketException ex)
+            {
+                Console.WriteLine($"Socket error: {ex.Message}");
+            }
+            catch (ObjectDisposedException)
+            {
+                Console.WriteLine("Listener stopped manually.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error: {ex.Message}");
+            }
+            finally
+            {
+                if (mTCPListener != null)
+                {
+                    mTCPListener.Stop();
+                    Console.WriteLine("Server stopped.");
+                }
+
+                KeepRunning = false;
+            }
         }
 
 
