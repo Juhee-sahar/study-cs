@@ -38,6 +38,10 @@ namespace TCPSocketAsync
                     //(3)
                     TcpClient client = await mTCPListener.AcceptTcpClientAsync();
                     Console.WriteLine("Client connected. : {client.Client.RemoteEndPoint}"); 
+
+                    ManageClient(client);
+
+
                 }
             }
             catch (SocketException ex)
@@ -64,7 +68,33 @@ namespace TCPSocketAsync
             }
         }
 
+        private async void ManageClient(TcpClient client)
+        {
+            NetworkStream? stream = null;
+            StreamReader? reader = null;
 
+            try
+            {
+                stream = client.GetStream();
+                reader = new StreamReader(stream);
 
+                char[] buffer = new char[1024];
+
+                while (KeepRunning)
+                {
+                    //(5)
+                    int bytesRead = await reader.ReadAsync(buffer, 0, buffer.Length);
+                    if (bytesRead == 0)
+                        break; // Client disconnected
+                    string receivedData = new string(buffer, 0, bytesRead);
+                    Console.WriteLine($"Received: {receivedData}");
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
