@@ -28,12 +28,18 @@ namespace ConsoleAppTcpClient02
             // 서버에 비동기 접속 시도
             _ = client.ConnectToServerAsync();
 
-            // 사용자 입력 대기
+            // 클라이언트 메세지 입력
             string? userInput = null;
             Console.WriteLine("메시지를 입력하세요. (종료하려면 <EXIT> 입력 후 Enter");
-
             do
             {
+                if(userInput != null && userInput.Trim() != "<EXIT>" && client.Client != null && client.Client.Connected)
+                {
+                    // 서버로 메세지 전송
+                    _ = client.SendData(userInput);
+                }
+
+
                 userInput = Console.ReadLine() ?? string.Empty;
             } while (userInput != "<EXIT>");
 

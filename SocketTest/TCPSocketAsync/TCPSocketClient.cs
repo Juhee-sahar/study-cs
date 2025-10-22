@@ -104,5 +104,33 @@ namespace TCPSocketAsync
                 throw;
             }
         }
+
+        //  서버로 데이터 전송
+        public async Task SendData(string userInput)
+        {
+            if (string.IsNullOrEmpty(userInput) || _client == null || !_client.Connected)
+            {
+                Console.WriteLine(" 서버에 연결되어 있지 않거나, 전송할 데이터가 없습니다.");
+                return; 
+            }
+            else
+            {
+                try
+                {
+                    // 서버로 데이터를 전송하기 위한 준비 (StreamWriter 등)
+                    StreamWriter clntStreamWriter = new StreamWriter(_client.GetStream());  
+                    clntStreamWriter.AutoFlush = true;
+
+                    // 사용자 입력 데이터를 서버로 전송
+                    await clntStreamWriter.WriteAsync(userInput);
+                    Console.WriteLine($"서버로 전송한 메세지 : {userInput}");
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.ToString());
+                    throw;
+                }
+            }
+        }
     }
 }
