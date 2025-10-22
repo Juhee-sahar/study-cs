@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            textBoxIP = new TextBox();
+            textBoxPortNum = new TextBox();
             label2 = new Label();
-            button1 = new Button();
-            textBox3 = new TextBox();
-            button2 = new Button();
-            label3 = new Label();
+            BtnServerConnect = new Button();
+            textBox1 = new TextBox();
+            BtnSendChatMassage = new Button();
+            labelChatLog = new Label();
+            BtnServerDisconnect = new Button();
             SuspendLayout();
             // 
             // label1
@@ -47,75 +48,88 @@
             label1.TabIndex = 0;
             label1.Text = "IP : ";
             // 
-            // textBox1
+            // textBoxIP
             // 
-            textBox1.Location = new Point(56, 17);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(249, 27);
-            textBox1.TabIndex = 1;
+            textBoxIP.Location = new Point(56, 17);
+            textBoxIP.Name = "textBoxIP";
+            textBoxIP.Size = new Size(237, 27);
+            textBoxIP.TabIndex = 1;
             // 
-            // textBox2
+            // textBoxPortNum
             // 
-            textBox2.Location = new Point(377, 17);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(140, 27);
-            textBox2.TabIndex = 3;
+            textBoxPortNum.Location = new Point(365, 17);
+            textBoxPortNum.Name = "textBoxPortNum";
+            textBoxPortNum.Size = new Size(128, 27);
+            textBoxPortNum.TabIndex = 3;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(311, 20);
+            label2.Location = new Point(299, 20);
             label2.Name = "label2";
             label2.Size = new Size(60, 20);
             label2.TabIndex = 2;
             label2.Text = "PORT : ";
             // 
-            // button1
+            // BtnServerConnect
             // 
-            button1.Location = new Point(538, 11);
-            button1.Name = "button1";
-            button1.Size = new Size(232, 39);
-            button1.TabIndex = 4;
-            button1.Text = "연결";
-            button1.UseVisualStyleBackColor = true;
+            BtnServerConnect.Location = new Point(501, 11);
+            BtnServerConnect.Name = "BtnServerConnect";
+            BtnServerConnect.Size = new Size(269, 39);
+            BtnServerConnect.TabIndex = 4;
+            BtnServerConnect.Text = "연결";
+            BtnServerConnect.UseVisualStyleBackColor = true;
+            BtnServerConnect.Click += BtnServerConnect_Click;
             // 
-            // textBox3
+            // textBox1
             // 
-            textBox3.Location = new Point(15, 605);
-            textBox3.Multiline = true;
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(755, 91);
-            textBox3.TabIndex = 6;
+            textBox1.Location = new Point(12, 551);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(758, 91);
+            textBox1.TabIndex = 6;
             // 
-            // button2
+            // BtnSendChatMassage
             // 
-            button2.Location = new Point(15, 702);
-            button2.Name = "button2";
-            button2.Size = new Size(755, 39);
-            button2.TabIndex = 7;
-            button2.Text = "전송";
-            button2.UseVisualStyleBackColor = true;
+            BtnSendChatMassage.Location = new Point(12, 648);
+            BtnSendChatMassage.Name = "BtnSendChatMassage";
+            BtnSendChatMassage.Size = new Size(758, 39);
+            BtnSendChatMassage.TabIndex = 7;
+            BtnSendChatMassage.Text = "전송";
+            BtnSendChatMassage.UseVisualStyleBackColor = true;
+            BtnSendChatMassage.Click += BtnSendChatMassage_Click;
             // 
-            // label3
+            // labelChatLog
             // 
-            label3.BorderStyle = BorderStyle.FixedSingle;
-            label3.Location = new Point(12, 61);
-            label3.Name = "label3";
-            label3.Size = new Size(758, 530);
-            label3.TabIndex = 8;
+            labelChatLog.BorderStyle = BorderStyle.FixedSingle;
+            labelChatLog.Location = new Point(12, 61);
+            labelChatLog.Name = "labelChatLog";
+            labelChatLog.Size = new Size(758, 482);
+            labelChatLog.TabIndex = 8;
+            // 
+            // BtnServerDisconnect
+            // 
+            BtnServerDisconnect.Location = new Point(659, 702);
+            BtnServerDisconnect.Name = "BtnServerDisconnect";
+            BtnServerDisconnect.Size = new Size(111, 39);
+            BtnServerDisconnect.TabIndex = 9;
+            BtnServerDisconnect.Text = "연결 해제";
+            BtnServerDisconnect.UseVisualStyleBackColor = true;
+            BtnServerDisconnect.Click += BtnServerDisconnect_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(782, 753);
-            Controls.Add(label3);
-            Controls.Add(button2);
-            Controls.Add(textBox3);
-            Controls.Add(button1);
-            Controls.Add(textBox2);
-            Controls.Add(label2);
+            Controls.Add(BtnServerDisconnect);
+            Controls.Add(labelChatLog);
+            Controls.Add(BtnSendChatMassage);
             Controls.Add(textBox1);
+            Controls.Add(BtnServerConnect);
+            Controls.Add(textBoxPortNum);
+            Controls.Add(label2);
+            Controls.Add(textBoxIP);
             Controls.Add(label1);
             Name = "Form1";
             Text = "Form1";
@@ -126,12 +140,13 @@
         #endregion
 
         private Label label1;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox textBoxIP;
+        private TextBox textBoxPortNum;
         private Label label2;
-        private Button button1;
-        private TextBox textBox3;
-        private Button button2;
-        private Label label3;
+        private Button BtnServerConnect;
+        private TextBox textBox1;
+        private Button BtnSendChatMassage;
+        private Label labelChatLog;
+        private Button BtnServerDisconnect;
     }
 }
