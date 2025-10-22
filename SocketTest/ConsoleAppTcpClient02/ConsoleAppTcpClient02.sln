@@ -5,6 +5,8 @@ VisualStudioVersion = 17.14.36616.10 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppTcpClient02", "ConsoleAppTcpClient02.csproj", "{13C0004C-BFAC-4C17-B257-7146237C1D0A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCPSocketAsync", "..\TCPSocketAsync\TCPSocketAsync.csproj", "{665B3D3B-9C15-F8BB-21B9-DA4A95BF0AB1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{13C0004C-BFAC-4C17-B257-7146237C1D0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13C0004C-BFAC-4C17-B257-7146237C1D0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13C0004C-BFAC-4C17-B257-7146237C1D0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{665B3D3B-9C15-F8BB-21B9-DA4A95BF0AB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{665B3D3B-9C15-F8BB-21B9-DA4A95BF0AB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{665B3D3B-9C15-F8BB-21B9-DA4A95BF0AB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{665B3D3B-9C15-F8BB-21B9-DA4A95BF0AB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
