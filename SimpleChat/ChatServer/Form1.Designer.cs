@@ -31,9 +31,9 @@
             button1 = new Button();
             button2 = new Button();
             label1 = new Label();
-            label2 = new Label();
+            labelClintList = new Label();
             label3 = new Label();
-            label4 = new Label();
+            labelChatLog = new Label();
             label5 = new Label();
             textBox1 = new TextBox();
             checkBox1 = new CheckBox();
@@ -50,6 +50,7 @@
             button1.TabIndex = 0;
             button1.Text = "연결 대기";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += BtnAcceptIncoming_Click;
             // 
             // button2
             // 
@@ -59,6 +60,7 @@
             button2.TabIndex = 1;
             button2.Text = "프로그램 종료";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += BtnDisconnectServer_Click;
             // 
             // label1
             // 
@@ -69,14 +71,14 @@
             label1.TabIndex = 2;
             label1.Text = "클라이언트 리스트";
             // 
-            // label2
+            // labelClintList
             // 
-            label2.BackColor = SystemColors.ButtonHighlight;
-            label2.BorderStyle = BorderStyle.FixedSingle;
-            label2.Location = new Point(12, 107);
-            label2.Name = "label2";
-            label2.Size = new Size(256, 439);
-            label2.TabIndex = 3;
+            labelClintList.BackColor = SystemColors.ButtonHighlight;
+            labelClintList.BorderStyle = BorderStyle.FixedSingle;
+            labelClintList.Location = new Point(12, 107);
+            labelClintList.Name = "labelClintList";
+            labelClintList.Size = new Size(256, 439);
+            labelClintList.TabIndex = 3;
             // 
             // label3
             // 
@@ -87,14 +89,14 @@
             label3.TabIndex = 4;
             label3.Text = "채팅 로그";
             // 
-            // label4
+            // labelChatLog
             // 
-            label4.BackColor = SystemColors.ButtonHighlight;
-            label4.BorderStyle = BorderStyle.FixedSingle;
-            label4.Location = new Point(289, 107);
-            label4.Name = "label4";
-            label4.Size = new Size(481, 439);
-            label4.TabIndex = 5;
+            labelChatLog.BackColor = SystemColors.ButtonHighlight;
+            labelChatLog.BorderStyle = BorderStyle.FixedSingle;
+            labelChatLog.Location = new Point(289, 107);
+            labelChatLog.Name = "labelChatLog";
+            labelChatLog.Size = new Size(481, 439);
+            labelChatLog.TabIndex = 5;
             // 
             // label5
             // 
@@ -161,9 +163,9 @@
             Controls.Add(checkBox1);
             Controls.Add(textBox1);
             Controls.Add(label5);
-            Controls.Add(label4);
+            Controls.Add(labelChatLog);
             Controls.Add(label3);
-            Controls.Add(label2);
+            Controls.Add(labelClintList);
             Controls.Add(label1);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -178,9 +180,9 @@
         private Button button1;
         private Button button2;
         private Label label1;
-        private Label label2;
+        private Label labelClintList;
         private Label label3;
-        private Label label4;
+        private Label labelChatLog;
         private Label label5;
         private TextBox textBox1;
         private CheckBox checkBox1;
