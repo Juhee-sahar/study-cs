@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36616.10 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppTcpClient02", "ConsoleAppTcpClient02.csproj", "{13C0004C-BFAC-4C17-B257-7146237C1D0A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13C0004C-BFAC-4C17-B257-7146237C1D0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13C0004C-BFAC-4C17-B257-7146237C1D0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13C0004C-BFAC-4C17-B257-7146237C1D0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13C0004C-BFAC-4C17-B257-7146237C1D0A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C03655BA-0B00-4206-96BE-95778C7C2342}
+	EndGlobalSection
+EndGlobal
