@@ -58,10 +58,49 @@ namespace TCPSocketAsync
                 await _client.ConnectAsync(_serverIPAddress, _serverPort);
                 Console.WriteLine(string.Format("서버 접속 IP/Port : {0}/{1}", _serverIPAddress, _serverPort));
 
+
+                // 서버로부터 데이터 수신 대기 시작 (실제 비즈니스 로직)
+                ReadDataAsync(_client);
+
+
             }
             catch (Exception e)
             {
                 Console.WriteLine($"서버 접속 에러 : {e.ToString()}");
+                throw;
+            }
+        }
+
+        // 서버로부터 데이터 수신 대기 메서드
+        private async void ReadDataAsync(TcpClient client)
+        {
+            try
+            {
+                // 서버로부터 수신된 데이터를 읽기 위한 준비 (StreamReader, Buffer 등)
+                StreamReader clntStreamReader = new StreamReader(client.GetStream());
+                char[] buffer = new char[1024];
+                int readByteCount = 0;
+
+                // 서버로부터 수신된 데이터 읽기
+                while (true)
+                {
+                    readByteCount = await clntStreamReader.ReadAsync(buffer, 0, buffer.Length);    
+
+                    if (readByteCount == 0)
+                    {
+                        Console.WriteLine("서버 연결 끊김");
+                        client.Close();
+                        break;
+                    }
+
+                    Console.WriteLine(string.Format("전달받은 바이트 : {0} , Message : {1}", readByteCount, new string(buffer)));
+                    Array.Clear(buffer, 0, readByteCount);  
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());    
                 throw;
             }
         }
