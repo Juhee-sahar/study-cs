@@ -33,14 +33,20 @@ namespace ConsoleAppTcpClient02
             Console.WriteLine("메시지를 입력하세요. (종료하려면 <EXIT> 입력 후 Enter");
             do
             {
-                if(userInput != null && userInput.Trim() != "<EXIT>" && client.Client != null && client.Client.Connected)
+                userInput = Console.ReadLine() ?? string.Empty;
+
+                if (userInput != null && userInput.Trim() != "<EXIT>" && client.Client != null && client.Client.Connected)
                 {
                     // 서버로 메세지 전송
                     _ = client.SendData(userInput);
                 }
+                else if (userInput.Equals("<EXIT>"))
+                {
+                    // <EXIT> 입력 시, 연결 종료
+                    client.CloseAndDisconnect();
+                }
 
 
-                userInput = Console.ReadLine() ?? string.Empty;
             } while (userInput != "<EXIT>");
 
             Console.WriteLine("클라이언트 프로그램을 종료합니다.");

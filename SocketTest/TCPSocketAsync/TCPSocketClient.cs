@@ -132,5 +132,18 @@ namespace TCPSocketAsync
                 }
             }
         }
+
+        // 서버 연결 종료 메서드
+        public void CloseAndDisconnect()
+        {
+            if(_client != null )
+            {
+                if (_client.Connected)
+                {
+                    _client.Close();
+                    Console.WriteLine("서버 연결 종료");
+                }
+            }
+        }
     }
 }
