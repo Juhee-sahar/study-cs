@@ -47,7 +47,7 @@
 
 <br>
 
-# 솔루션 내부 프로젝트 참조하기 (WinFormsApp, TCPSocketServer)
+# 솔루션 내부 프로젝트 참조하기 (WinFormsAppTCPSocketServer)
 - 솔루션탐색기(Solution Explorer) >> 종속성(Dependencies) >> 프로젝트 참조 추가(Add Project Reference)
 ![화면이미지](imgs/screen04.png)
 
