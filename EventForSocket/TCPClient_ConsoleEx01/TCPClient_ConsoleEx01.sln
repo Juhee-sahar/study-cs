@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36603.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCPClient_ConsoleEx01", "TCPClient_ConsoleEx01\TCPClient_ConsoleEx01.csproj", "{A8B67F62-513A-4E16-A362-C8121A0D5C5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCPSocket", "..\TCPSocketLibrary\TCPSocket.csproj", "{6872338D-1D38-8753-6F08-C0F32AD7A9B6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A8B67F62-513A-4E16-A362-C8121A0D5C5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8B67F62-513A-4E16-A362-C8121A0D5C5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8B67F62-513A-4E16-A362-C8121A0D5C5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8B67F62-513A-4E16-A362-C8121A0D5C5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6872338D-1D38-8753-6F08-C0F32AD7A9B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6872338D-1D38-8753-6F08-C0F32AD7A9B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6872338D-1D38-8753-6F08-C0F32AD7A9B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6872338D-1D38-8753-6F08-C0F32AD7A9B6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C5F8E59A-D026-456F-8B47-064F498C78FA}
+	EndGlobalSection
+EndGlobal
