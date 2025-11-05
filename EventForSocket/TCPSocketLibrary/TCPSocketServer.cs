@@ -24,6 +24,8 @@ namespace TCPSocket
             mClients = new List<TcpClient>();
         }
 
+
+
         // 이벤트 핸들러
         // - public: 외부에서도 이 이벤트에 구독 가능(+=, -= 가능)
         // - event: 외부에서 직접 실행(Invoke)은 불가능 (캡슐화)
@@ -36,6 +38,19 @@ namespace TCPSocket
             // (ClientConnectedEvent가 null이면 자동으로 아무 일도 하지 않음)
             ClientConnectedEvent?.Invoke(this, e);
         }
+
+
+        // 이벤트 수신 이벤트
+        public event EventHandler<TextReceivedEventArgs>? TextReceivedEvent;
+
+        // 텍스트 수신 이벤트 발생 메서드
+        public void OnRaiseTextReceivedEvent(TextReceivedEventArgs e)
+        {
+            // 이벤트 발생
+            TextReceivedEvent?.Invoke(this, e); 
+        }
+
+
 
         public async Task StartServerListeningAsync(IPAddress? ipaddr = null, int port = 23000)
         {
@@ -117,6 +132,13 @@ namespace TCPSocket
                     Console.WriteLine($"수신한 데이터: {receivedData}");
 
                     //_ = SendToAll(receivedData);
+
+                    // 이벤트 발생 시 전달할 데이터 생성
+                    string clientInfo = client.Client.RemoteEndPoint?.ToString() ?? "Unknown";
+                    TextReceivedEventArgs enentArgs = new TextReceivedEventArgs(clientInfo, receivedData);  
+
+                    // 이벤트 발생 메서드 호출
+                    OnRaiseTextReceivedEvent(enentArgs);    
                 }
             }
             catch (Exception ex)

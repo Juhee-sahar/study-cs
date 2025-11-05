@@ -14,6 +14,8 @@ namespace WinFormsApp2
 
             // 폼이 로드될 때 이벤트 핸들러를 등록합니다.
             mServer.ClientConnectedEvent += HandleClientConnect;
+
+            mServer.TextReceivedEvent += HandleTextReceived;
         }
 
         private async void BtnAcceptIncomingAsync_Click(object sender, System.EventArgs e)
@@ -44,6 +46,13 @@ namespace WinFormsApp2
             //MessageBox.Show($"클라이언트가 접속했습니다. {e.NewClientInfo}");
             textBox2.AppendText($"클라이언트가 접속했습니다. " +
                 $"{e.NewClientInfo}{System.Environment.NewLine}" );
+        }
+
+        // 텍스트 수신 이벤트 핸들러
+        void HandleTextReceived(object sender, TextReceivedEventArgs e)
+        {
+            textBox2.AppendText(
+                $"[{e.ClientInfo}] : {e.TextReceived}{System.Environment.NewLine}");
         }
     }
 }
