@@ -17,6 +17,21 @@ namespace TCPSocket
         private int _serverPort;              //서버Port
         private TcpClient? _client;           //클라Socket
 
+
+
+        // 텍스트 수신 이벤트 정의
+        public EventHandler<CustomEventArgs>? TextReceivedEvent;
+
+        // 텍스트 수신 이벤트 발생 메서드
+        public void OnRaiseTextReceivedEvent(CustomEventArgs e)
+        {
+            TextReceivedEvent?.Invoke(this, e);
+        }
+
+
+
+
+
         // [B] getter 구현 (외부에서 변경 불가, 내부 메서드를 통해서만 변경)
         // (동일) // public IPAddress? ServerIPAddress { get { return _serverIPAddress; } }
         public IPAddress? ServerIPAddress => _serverIPAddress;
@@ -93,6 +108,12 @@ namespace TCPSocket
 
                     // [F.3] 수신된 데이터 출력 (실제 비지니스 로직 처리 부분)
                     Console.WriteLine(string.Format("전달받은 바이트:{0} - Message: {1}", readByteCount, new string(buffer)));
+
+
+                    // 텍스트 수신 이벤트 발생 메서드 호출
+                    OnRaiseTextReceivedEvent(new CustomEventArgs(new string(buffer, 0, readByteCount)));
+
+
                     Array.Clear(buffer, 0, readByteCount);
                 }
             }

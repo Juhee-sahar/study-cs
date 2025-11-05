@@ -10,6 +10,13 @@ namespace TCPClient_ConsoleEx01
             // [A] TCPSocketClient 인스턴스 생성
             TCPSocketClient client = new TCPSocketClient();
 
+
+            // 텍스트 수신 이벤트 핸들러 등록
+            client.TextReceivedEvent += Client_TextReceivedEvent;
+
+
+
+
             // [B] 사용자로부터 서버 IP 주소와 포트 번호 입력 받고, 설정
             Console.WriteLine("*** 소켓 클라이언트 예제 ***");
 
@@ -45,6 +52,13 @@ namespace TCPClient_ConsoleEx01
             } while (userInput != "<EXIT>");
 
             Console.WriteLine("클라이언트 프로그램을 종료합니다.");
+        }
+
+
+        private static void Client_TextReceivedEvent(object? sender, CustomEventArgs e)
+        {
+            // 수신된 텍스트 출력
+            Console.WriteLine($"[서버로부터 수신된 메시지]: {e.NewClientInfo}");
         }
     }
 }
